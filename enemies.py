@@ -65,5 +65,18 @@ class BlackDragon(Dragon):
         self.__quest = str(x) + '*' + str(y)
         self.set_answer(x * y)
         return self.__quest
+class Troll(Attacker):
+    def __init__(self):
+        self._health = 99999999999999999
+        self._attack = 50
+    def set_answer(self, answer):
+        self.__answer = answer
+    def question(self):
+        self.__quest = 'Угадай число от 1 до 5'
+        x = randint(1,5)
+        self.set_answer(x)
+        return self.__quest
+    def check_answer(self, answer):
+        return answer == self.__answer
 
-enemy_types = [GreenDragon, RedDragon, BlackDragon]
+enemy_types = [GreenDragon, RedDragon, BlackDragon, Troll]
